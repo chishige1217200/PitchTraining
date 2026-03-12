@@ -256,7 +256,7 @@ class EarTrainingApp(QWidget):
         if ans_index == self.correct_note:
             self.result.setText("Correct!")
         else:
-            correct = NOTE_NAMES[self.correct_note]
+            correct = NOTE_DISPLAY_NAMES[self.correct_note]
             self.result.setText(f"Wrong (Answer: {correct})")
 
         if self.last_notes:
