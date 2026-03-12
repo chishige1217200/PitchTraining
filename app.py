@@ -29,6 +29,11 @@ NOTE_NAMES = [
     "F#","G","G#","A","A#","B"
 ]
 
+NOTE_DISPLAY_NAMES = [
+    "ド","ド#","レ","レ#","ミ","ファ",
+    "ファ#","ソ","ソ#","ラ","ラ#","シ"
+]
+
 BASE_NOTE = 60
 
 
@@ -98,13 +103,12 @@ class EarTrainingApp(QWidget):
         self.play_btn.clicked.connect(self.play_question)
         layout.addWidget(self.play_btn)
 
-        # ★ Play Again
         self.play_again_btn = QPushButton("Play Again")
         self.play_again_btn.clicked.connect(self.play_again)
         layout.addWidget(self.play_again_btn)
 
         self.answer = QComboBox()
-        self.answer.addItems(NOTE_NAMES)
+        self.answer.addItems(NOTE_DISPLAY_NAMES)
         layout.addWidget(self.answer)
 
         self.check_btn = QPushButton("Check")
@@ -175,7 +179,7 @@ class EarTrainingApp(QWidget):
     def check_answer(self):
 
         ans = self.answer.currentText()
-        ans_index = NOTE_NAMES.index(ans)
+        ans_index = NOTE_DISPLAY_NAMES.index(ans)
 
         if ans_index == self.correct_note:
             self.result.setText("Correct!")
